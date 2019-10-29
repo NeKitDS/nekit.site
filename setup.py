@@ -14,12 +14,13 @@ setup(
     project_urls={
         "Issue tracker": "https://github.com/NeKitDS/nekit.site/issues",
     },
-    version='0.1.1',
+    version='0.1.2',
     packages=[
         'nekit_site', 'nekit_site.ext'
     ],
     license='MIT',
     description='NeKit\'s Site',
+    include_package_data=True,
     install_requires=requirements,
     python_requires='>=3.5.3',
     classifiers=[
