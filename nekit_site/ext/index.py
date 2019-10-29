@@ -1,9 +1,12 @@
 from aiohttp import web
+from pathlib import Path
+
+templates = Path(__file__).parent.parent / 'templates'
 
 __all__ = ('hello', 'index')
 
 
-with open('templates/index.html', 'r') as file:
+with open(templates/'index.html', 'r') as file:
     index = file.read()
 
 
