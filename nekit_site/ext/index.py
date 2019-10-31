@@ -1,7 +1,6 @@
 from aiohttp import web
-from pathlib import Path
 
-templates = Path(__file__).parent.parent / 'templates'
+from ..constants import templates
 
 __all__ = ('hello', 'index')
 
