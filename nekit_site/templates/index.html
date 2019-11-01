@@ -16,6 +16,7 @@
             }
 
             body {
+                transition: 0.5s ease-in-out;
                 background-color: var(--color-bg);
             }
 
@@ -73,9 +74,9 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background-color: var(--color-bg);
-                -webkit-transition: .4s;
-                transition: .4s;
+                background-color: var(—-color-bg);
+                -webkit-transition: 0.5s;
+                transition: 0.5s;
             }
 
             .slider:before {
@@ -86,8 +87,8 @@
                 left: 4px;
                 bottom: 4px;
                 background-color: white;
-                -webkit-transition: .4s;
-                transition: .4s;
+                -webkit-transition: 0.5s;
+                transition: 0.5s;
               }
 
             input:checked + .slider {
@@ -124,11 +125,7 @@
         </label>
         <script>
             function handler(event) {
-                setTimeout(
-                    function() {
-                        (event.target.checked) ? document.body.setAttribute('data-theme', 'light') : document.body.removeAttribute('data-theme');
-                    }, 400
-                )
+                (event.target.checked) ? document.body.setAttribute('data-theme', 'light') : document.body.removeAttribute('data-theme');
             }
             document.getElementById('switcher').addEventListener('change', handler);
         </script>
