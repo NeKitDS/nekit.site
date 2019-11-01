@@ -14,7 +14,7 @@ setup(
     project_urls={
         "Issue tracker": "https://github.com/NeKitDS/nekit.site/issues",
     },
-    version='0.1.2',
+    version='0.1.3',
     packages=[
         'nekit_site', 'nekit_site.ext'
     ],
