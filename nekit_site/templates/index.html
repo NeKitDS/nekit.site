@@ -94,10 +94,6 @@
                 background-color: #2196F3;
             }
 
-            input:focus + .slider {
-                box-shadow: 0 0 4px #2196F3;
-            }
-
             input:checked + .slider:before {
                 -webkit-transform: translateX(26px);
                 -ms-transform: translateX(26px);
@@ -128,7 +124,11 @@
         </label>
         <script>
             function handler(event) {
-                (event.target.checked) ? document.body.setAttribute('data-theme', 'light') : document.body.removeAttribute('data-theme');
+                setTimeout(
+                    function() {
+                        (event.target.checked) ? document.body.setAttribute('data-theme', 'light') : document.body.removeAttribute('data-theme');
+                    }, 400
+                )
             }
             document.getElementById('switcher').addEventListener('change', handler);
         </script>
