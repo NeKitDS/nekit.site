@@ -24,7 +24,8 @@ async def check_level(request):
     except gd.GDException:
         return web.Response(text='Level with ID {} was not found.'.format(query), status=404)
 
-    approved = [1, 1, 1]
+    categories = ('reserved_ok', 'in_pack_or_world_ok', 'rated_ok')
+    approved = [True, True, True]
 
     params = request.rel_url.query
 
@@ -41,7 +42,7 @@ async def check_level(request):
 
         creators = [name.lstrip('- ') for name in text.split('\r\n')]
 
-        approved[0] = int(level.creator.name not in creators)
+        approved[0] = (level.creator.name not in creators)
 
     allow_world_or_packs = int(params.get('allow_world_or_packs', 0))
 
@@ -65,7 +66,7 @@ async def check_level(request):
         for gauntlet in gauntlets:
             check_against.extend(gauntlet.level_ids)
 
-        approved[1] = int(level.id not in check_against)
+        approved[1] = (level.id not in check_against)
 
     rate_status = int(params.get('rate_status', 2))
 
@@ -73,12 +74,12 @@ async def check_level(request):
         0: True, 1: level.is_rated(), 2: level.is_featured(), 3: level.is_epic()
     }
 
-    approved[2] = int(rate_map.get(rate_status, 0))
+    approved[2] = rate_map.get(rate_status, False)
 
-    verified = all(approved)
+    verified, detailed = all(approved), dict(zip(categories, approved))
 
     info = gdapi.make_level_dict(level)
 
-    final = {'approved': verified, **info}
+    final = {'approved': verified, 'analysis': detailed, **info}
 
     return web.json_response(final)
