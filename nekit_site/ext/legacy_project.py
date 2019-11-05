@@ -1,4 +1,6 @@
 from aiohttp import web
+
+from gdapi.utils import json_resp
 import gdapi
 
 LEGACY_PASTEBIN = 'https://pastebin.com/raw/VXKF1KtN'
@@ -82,4 +84,4 @@ async def check_level(request):
 
     final = {'approved': verified, 'analysis': detailed, **info}
 
-    return web.json_response(final)
+    return json_resp(final)
