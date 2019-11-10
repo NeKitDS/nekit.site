@@ -10,5 +10,5 @@ with open(templates/'index.html', 'r') as file:
 
 
 async def hello(request):
-    text = index.format(title='NeKitDS', main='The Site of NeKitDS')
+    text = index % ('NeKitDS', 'The Site of NeKitDS')
     return web.Response(text=text, content_type='text/html')
