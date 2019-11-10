@@ -7,7 +7,32 @@ LEGACY_PASTEBIN = 'https://pastebin.com/raw/VXKF1KtN'
 
 gd, client = gdapi.gd, gdapi.client
 
+tasks = gd.utils.tasks
+
 __all__ = ('LEGACY_PASTEBIN', 'check_level')
+
+
+class Handler:
+    world_levels = ()
+    map_packs = ()
+    gauntlets = ()
+
+@tasks.loop(seconds=30)
+async def loader():
+    try:
+        filters = gd.Filters(strategy='world')
+        Handler.world_levels = (
+            await client.search_levels(pages=range(100), filters=filters)
+        )
+
+        Handler.map_packs = await client.get_map_packs(pages=range(100))
+
+        Handler.gauntlets = await client.get_gauntlets()
+
+    except Exception:
+        pass
+
+loader.start()
 
 
 async def check_level(request):
@@ -49,23 +74,12 @@ async def check_level(request):
     allow_world_or_packs = int(params.get('allow_world_or_packs', 0))
 
     if not allow_world_or_packs:
-        try:
-            filters = gd.Filters(strategy='world')
-            world_levels, map_packs, gauntlets = (
-                await client.search_levels(pages=range(100), filters=filters),
-                await client.get_map_packs(pages=range(100)),
-                await client.get_gauntlets()
-            )
+        check_against = [level.id for level in Handler.world_levels]
 
-        except gd.GDException:
-            return web.Response(text='Failed to load required data to compare against the level.', status=404)
-
-        check_against = [level.id for level in world_levels]
-
-        for map_pack in map_packs:
+        for map_pack in Handler.map_packs:
             check_against.extend(map_pack.level_ids)
 
-        for gauntlet in gauntlets:
+        for gauntlet in Handler.gauntlets:
             check_against.extend(gauntlet.level_ids)
 
         approved[1] = (level.id not in check_against)
