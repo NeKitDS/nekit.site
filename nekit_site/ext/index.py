@@ -10,4 +10,5 @@ with open(templates/'index.html', 'r') as file:
 
 
 async def hello(request):
-    return web.Response(text=index, content_type='text/html')
+    text = index.format(title='NeKitDS', main='The Site of NeKitDS')
+    return web.Response(text=text, content_type='text/html')
