@@ -2,10 +2,11 @@ from aiohttp import web
 
 from gdapi.utils import json_resp
 import gdapi
+import gd
 
 LEGACY_PASTEBIN = 'https://pastebin.com/raw/VXKF1KtN'
 
-gd, client = gdapi.gd, gdapi.client
+client = gdapi.constants.client
 
 tasks = gd.utils.tasks
 
