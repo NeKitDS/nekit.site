@@ -14,7 +14,7 @@ setup(
     project_urls={
         "Issue tracker": "https://github.com/NeKitDS/nekit.site/issues",
     },
-    version='0.1.7',
+    version='0.1.8',
     packages=[
         'nekit_site', 'nekit_site.ext'
     ],
@@ -29,6 +29,7 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'Natural Language :: English',
         'Operating System :: OS Independent'
     ],
