@@ -18,6 +18,7 @@ class Handler:
     map_packs = ()
     gauntlets = ()
 
+
 @tasks.loop(seconds=30)
 async def loader():
     try:
@@ -61,7 +62,7 @@ async def check_level(request):
 
     if not accept_reserved:
         try:
-            resp = await gd.http.normal_request(LEGACY_PASTEBIN)
+            resp = await client.http.normal_request(LEGACY_PASTEBIN)
             data = await resp.content.read()
             text = data.decode()
 
