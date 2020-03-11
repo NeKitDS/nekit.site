@@ -34,7 +34,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'run_site = nekit_site.__main__',
+            'run_site = nekit_site.__main__:main',
         ]
     }
 )
