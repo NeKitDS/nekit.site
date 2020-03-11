@@ -96,8 +96,6 @@ async def check_level(request):
 
     verified, detailed = all(approved), dict(zip(categories, approved))
 
-    info = gdapi.make_level_dict(level)
-
-    final = {'approved': verified, 'analysis': detailed, **info}
+    final = {'approved': verified, 'analysis': detailed, 'data': level}
 
     return json_resp(final)
