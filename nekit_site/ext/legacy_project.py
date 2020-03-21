@@ -1,14 +1,9 @@
 from aiohttp import web
 
-from gdapi.utils import json_resp
-import gdapi
 import gd
 
+client = gd.server.CLIENT
 LEGACY_PASTEBIN = 'https://pastebin.com/raw/VXKF1KtN'
-
-client = gdapi.constants.client
-
-tasks = gd.utils.tasks
 
 __all__ = ('LEGACY_PASTEBIN', 'check_level')
 
@@ -19,7 +14,7 @@ class Handler:
     gauntlets = ()
 
 
-@tasks.loop(seconds=30)
+@gd.tasks.loop(seconds=30)
 async def loader():
     try:
         filters = gd.Filters(strategy='world')

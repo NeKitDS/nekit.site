@@ -3,7 +3,7 @@ import re
 
 requirements = []
 with open('requirements.txt') as f:
-    requirements = f.read().splitlines()
+    requirements = [line for line in f if not line.startswith('-e')]
 
 
 setup(
@@ -14,7 +14,7 @@ setup(
     project_urls={
         "Issue tracker": "https://github.com/NeKitDS/nekit.site/issues",
     },
-    version='0.1.8',
+    version='0.1.9',
     packages=[
         'nekit_site', 'nekit_site.ext'
     ],

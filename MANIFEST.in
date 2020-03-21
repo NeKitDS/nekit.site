@@ -1,1 +1,2 @@
 include nekit_site/templates/*
+include nekit_site/css/*

@@ -1,13 +1,10 @@
-from aiohttp import web
+from ..constants import env, html_resp, routes, web
 
-from ..constants import templates
+__all__ = ('handle_index',)
 
-__all__ = ('hello', 'index')
-
-
-with open(templates/'index.html', 'r') as file:
-    index = file.read()
+template = env.get_template('index.html')
 
 
-async def hello(request):
-    return web.Response(text=index, content_type='text/html')
+@routes.get('/')
+async def handle_index(request: web.Request) -> web.Response:
+    return html_resp(text=template.render())
