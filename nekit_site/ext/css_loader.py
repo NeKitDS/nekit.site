@@ -6,6 +6,7 @@ res_map = {
     file.name: file.read_text('utf-8') for file in css.iterdir()
 }
 
+
 @routes.get('/css/{name}')
 async def handle_css(request: web.Request) -> web.Response:
     data = res_map.get(request.match_info.get('name'))
