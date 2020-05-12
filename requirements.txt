@@ -1,3 +1,3 @@
 -e https://github.com/NeKitDS/gd.py/archive/master.zip
 jinja2>=2.10
-gd.py>=0.10.4
+gd.py>=1.0.0a0

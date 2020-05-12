@@ -1,10 +1,11 @@
 from ..constants import env, html_resp, routes, web
 
-__all__ = ('handle_index',)
+__all__ = ("handle_index",)
 
-template = env.get_template('index.html')
+template = env.get_template("index.html")
 
 
-@routes.get('/')
+@routes.get("/")
 async def handle_index(request: web.Request) -> web.Response:
-    return html_resp(text=template.render())
+    text = await template.render_async()
+    return html_resp(text=text)
