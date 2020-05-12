@@ -1,11 +1,11 @@
 :root {
-    --color-bg: #1e2124;
+    --color-bg: #000000;
     --color-text: #eeeeee;
 }
 
 [data-theme="light"] {
     --color-bg: #eeeeee;
-    --color-text: #1e2124;
+    --color-text: #000000;
 }
 
 body {
