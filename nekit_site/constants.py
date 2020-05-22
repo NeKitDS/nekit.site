@@ -4,18 +4,20 @@ from pathlib import Path
 from aiohttp import web
 from jinja2 import Environment, FileSystemLoader
 
-__all__ = ("css", "templates", "env", "routes", "port", "html_resp")
+__all__ = ("static", "templates", "env", "routes", "port", "html_resp")
 
 root = Path(__file__).parent
 
-css = root / "css"
-templates = root / "templates"
+static = root / "static"
+templates = static / "html"
 
 env = Environment(loader=FileSystemLoader(templates), enable_async=True)
 
 port = os.environ.get("PORT", 80)
 
 routes = web.RouteTableDef()
+
+routes.static("/static", static)
 
 
 def html_resp(**kwargs) -> web.Response:
