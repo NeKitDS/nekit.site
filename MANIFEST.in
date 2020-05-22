@@ -1,2 +1,1 @@
-include nekit_site/templates/*
-include nekit_site/css/*
+recursive-include nekit_site/static *.json *.js *.css *.html
