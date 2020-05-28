@@ -18,7 +18,7 @@
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="static/css/core.css" type="text/css" media="screen,projection">
-        <link rel="stylesheet" href="static/css/materialize.css" type="text/css" media="screen,projection">
+        <link rel="stylesheet" href="static/css/materialize.min.css" type="text/css" media="screen,projection">
         {% endblock %}
     </head>
 
@@ -28,11 +28,6 @@
         <!-- navigation -->
         <nav class="theme light-1" role="navigation">
             <div class="nav-wrapper container">
-
-                <label class="switch">
-                    <input type="checkbox" id="switch">
-                    <span class="lever"></span>
-                </label>
 
                 <ul class="right hide-on-med-and-down">
                 {% for name, link in nav_links.items() %}
@@ -61,7 +56,7 @@
 
         <!-- scripts -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="static/js/materialize.js"></script>
+        <script src="static/js/materialize.min.js"></script>
         <script src="static/js/init.js"></script>
     </body>
 </html> 
