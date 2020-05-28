@@ -2,8 +2,8 @@
 
 [data-theme="dark"] {
     --theme-color: #101010;
-    --theme-light-1-color: #151515;
-    --theme-light-2-color: #202020;
+    --theme-light-1-color: #303030;
+    --theme-light-2-color: #505050;
 }
 
 [data-theme="light"] {
