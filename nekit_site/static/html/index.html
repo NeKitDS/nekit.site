@@ -1,28 +1,10 @@
-<html>
-    <head>
-        <title>NeKitDS</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta id="meta-title" property="og:title" content="NeKit's Website">
-        <meta id="meta-desc" property="og:description" content="This site is owned by NeKitDS. You can find Geometry Dash API and different things here.">
-        <link rel="stylesheet" href="static/css/index.css">
-    </head>
-    <body>
-        <p>
-            <strong>The Site of NeKitDS</strong><br/><br/>
-            <a href="https://github.com/NeKitDS/">GitHub</a><br/>
-            <a href="https://discordapp.com/invite/9xhdQFR/">Discord</a><br/>
-            <a href="https://patreon.com/nekit/">Patreon</a><br/>
-            <a href="/api/">API</a><br/>
-        </p>
-        <label class="switch">
-            <input type="checkbox" id="switcher">
-            <span class="slider round"></span>
-        </label>
-        <script>
-            function handler(event) {
-                (event.target.checked) ? document.body.setAttribute('data-theme', 'light') : document.body.removeAttribute('data-theme');
-            }
-            document.getElementById('switcher').addEventListener('change', handler);
-        </script>
-    </body>
-</html>
+{% extends "base.html" %}
+{% set title = "Index" %}
+{% set description = "This is home page of nekit's website." %}
+{% set nav_links = {"API": "/api", "GD": "/gd", "GitHub": "https://github.com/NeKitDS"} %}
+<body>
+    {% block content %}
+    {{ super() }}
+    <h1 class="header center light-blue-text">nekit~</h1>
+    {% endblock %}
+</body>

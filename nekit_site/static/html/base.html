@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block header %}
+        <title>{{ title }}</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Style-Type" content="text/css">
+
+        <meta author="nekit">
+        <meta keywords="geometry,dash,gd,gmd,api,nekit,programming">
+        <meta name="description" content="{{ description }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta property="og:site_name" content="nekit">
+        <meta property="og:title" content="{{ title }}">
+        <meta property="og:description" content="{{ description }}">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="static/css/core.css" type="text/css" media="screen,projection">
+        <link rel="stylesheet" href="static/css/materialize.css" type="text/css" media="screen,projection">
+        {% endblock %}
+    </head>
+
+    <!-- All hail dark theme! -->
+    <body class="theme" data-theme="dark">
+
+        <!-- navigation -->
+        <nav class="theme light-1" role="navigation">
+            <div class="nav-wrapper container">
+
+                <label class="switch">
+                    <input type="checkbox" id="switch">
+                    <span class="lever"></span>
+                </label>
+
+                <ul class="right hide-on-med-and-down">
+                {% for name, link in nav_links.items() %}
+                    <li><a class="light-blue-text" href="{{ link }}">{{ name }}</a></li>
+                {% endfor %}
+                </ul>
+
+                <ul id="nav-mobile" class="sidenav theme light-1">
+                {% for name, link in nav_links.items() %}
+                    <li><a class="light-blue-text" href="{{ link }}">{{ name }}</a></li>
+                {% endfor %}
+                </ul>
+
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+                <i class="material-icons light-blue-text">menu</i>
+            </a>
+
+            <a class="waves-effect waves-light btn-small theme light-2 light-blue-text" onclick="theme_switch()">Theme</a>
+
+            </div>
+        </nav>
+
+        <!-- body -->
+        {% block content %}
+        {% endblock %}
+
+        <!-- scripts -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="static/js/materialize.js"></script>
+        <script src="static/js/init.js"></script>
+    </body>
+</html> 

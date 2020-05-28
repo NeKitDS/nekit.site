@@ -1,0 +1,25 @@
+/* whatever ~ nekit */
+
+[data-theme="dark"] {
+    --theme-color: #101010;
+    --theme-light-1-color: #151515;
+    --theme-light-2-color: #202020;
+}
+
+[data-theme="light"] {
+    --theme-color: #cccccc;
+    --theme-light-1-color: #dddddd;
+    --theme-light-2-color: #eeeeee;
+}
+
+.theme {
+    background-color: var(--theme-color) !important;
+}
+
+.theme.light-1 {
+    background-color: var(--theme-light-1-color) !important;
+}
+
+.theme.light-2 {
+    background-color: var(--theme-light-2-color) !important;
+}

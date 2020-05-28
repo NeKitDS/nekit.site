@@ -12,7 +12,7 @@ setup(
     author_email="gdpy13@gmail.com",
     url="https://github.com/NeKitDS/nekit.site",
     project_urls={"Issue tracker": "https://github.com/NeKitDS/nekit.site/issues",},
-    version="0.3.0",
+    version="0.4.0",
     packages=["nekit_site", "nekit_site.src"],
     license="MIT",
     description="NeKit's Site",
