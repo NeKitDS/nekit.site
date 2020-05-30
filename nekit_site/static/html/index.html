@@ -1,10 +1,36 @@
 {% extends "base.html" %}
 {% set title = "Home" %}
 {% set description = "This is the home page of nekit's site." %}
-{% set nav_links = {"API": "/api", "GD": "/gd", "GitHub": "https://github.com/NeKitDS"} %}
+{% set nav_links = {"API": "/api", "GD": "/gd"} %}
 <body>
     {% block content %}
     {{ super() }}
     <h1 class="header center light-blue-text">nekit</h1>
+    <div class="container">
+        <p class="caption theme-text">
+            My name is Nikita Tikhonov, <i>nekit</i> for short.<br/>
+            I am 16-year-old programming enthusiast from Moscow, Russia.<br/>
+            I mostly write my projects in Python and sometimes I use C#, JavaScript and Rust.<br/>
+            You can find me on
+            <a class="light-blue-text" href="https://twitter.com/NeKitDS_" target="blank_">Twitter</a>,
+            <a class="light-blue-text" href="https://github.com/NeKitDS" target="blank_">GitHub</a> and
+            <a class="light-blue-text" href="https://youtube.com/channel/UCkW53Qg6c2b606cH8yfAjVw" target="blank_">YouTube</a>.</br>
+        </p>
+        <div class="col">
+            {% for project in projects %}
+            <div class="row s12 m6">
+                <div class="card theme light-1">
+                    <div class="card-content">
+                        <span class="card-title theme-text">{{ project["title"] }}</span>
+                        <p class="theme-text">{{ project["info"] }}</p>
+                    </div>
+                    <div class="card-action theme light-1">
+                        <a href="{{ project['link'] }}" class="light-blue-text">{{ project["link_name"] }}</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
     {% endblock %}
 </body>

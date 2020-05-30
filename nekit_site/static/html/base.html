@@ -28,7 +28,6 @@
         <!-- navigation -->
         <nav class="theme light-1" role="navigation">
             <div class="nav-wrapper container">
-
                 <ul class="right hide-on-med-and-down">
                 {% for name, link in nav_links.items() %}
                     <li><a class="light-blue-text" href="{{ link }}">{{ name }}</a></li>
@@ -45,6 +44,7 @@
                 <i class="material-icons light-blue-text">menu</i>
             </a>
 
+            <!-- I removed changing theme to white because my eyes hurt ~ nekit -->
             <a class="waves-effect waves-light btn-small theme light-2 light-blue-text" onclick="theme_switch()">Theme</a>
 
             </div>
