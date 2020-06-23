@@ -4,7 +4,7 @@ from aiohttp import web
 import gd
 
 from nekit_site.constants import port, routes
-from nekit_site.src import *
+from nekit_site.routes import *
 
 
 def create_app(**kwargs) -> web.Application:
