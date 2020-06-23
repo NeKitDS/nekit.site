@@ -13,7 +13,7 @@ setup(
     url="https://github.com/NeKitDS/nekit.site",
     project_urls={"Issue tracker": "https://github.com/NeKitDS/nekit.site/issues",},
     version="0.4.0",
-    packages=["nekit_site", "nekit_site.src"],
+    packages=["nekit_site", "nekit_site.routes"],
     license="MIT",
     description="NeKit's Site",
     include_package_data=True,
