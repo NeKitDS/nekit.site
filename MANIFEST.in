@@ -1,1 +1,1 @@
-recursive-include nekit_site/static *.json *.js *.css *.html
+recursive-include nekit_site/static *.json *.js *.css *.html *.png

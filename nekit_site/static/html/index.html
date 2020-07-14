@@ -9,7 +9,7 @@
     <div class="container">
         <p class="caption theme-text">
             My name is Nikita Tikhonov, <i>nekit</i> for short.<br/>
-            I am 16-year-old programming enthusiast from Moscow, Russia.<br/>
+            I am {{ age }}-year-old programming enthusiast from Moscow, Russia.<br/>
             I mostly write my projects in Python and sometimes I use C#, JavaScript and Rust.<br/>
             You can find me on
             <a class="light-blue-text" href="https://twitter.com/NeKitDS_" target="blank_">Twitter</a>,
@@ -25,7 +25,9 @@
                         <p class="theme-text">{{ project["info"] }}</p>
                     </div>
                     <div class="card-action theme light-1">
-                        <a href="{{ project['link'] }}" class="light-blue-text" target="blank_">{{ project["link_name"] }}</a>
+                        {% for link in project["links"] %}
+                        <a href="{{ link['url'] }}" class="light-blue-text" target="blank_">{{ link["name"] }}</a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
